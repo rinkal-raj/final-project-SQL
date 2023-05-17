@@ -7,7 +7,7 @@ Answer the following questions and provide the SQL queries used to find the answ
 SQL Queries:    
 
 		SELECT DISTINCT city,
-						country,
+				country,
 		MAX(transactionrevenue) AS highest_revenue
 		FROM   all_sessions
 		WHERE city <> 'not available in demo dataset'
@@ -28,36 +28,36 @@ SQL Queries:
 
 		 SELECT DISTINCT 
 			s.city,
-		    s.country,
+		    	s.country,
 			s.productsku,
-            AVG (total_ordered) :: NUMERIC(10,2)AS 		Avg_Total_order
-         FROM sales_by_sku AS sales
+            	AVG (total_ordered) :: NUMERIC(10,2) AS  Avg_Total_order
+        	 FROM sales_by_sku AS sales
 		INNER JOIN all_sessions AS s
 		ON sales.productsku = s.productsku
 		WHERE city <> 'not available in demo dataset'
-        AND country <> 'not available in demo dataset'
+       		 AND country <> 'not available in demo dataset'
 		AND city <> '(not set)'
 		AND country <> '(not set)'
 		AND total_ordered <> '0'
-	    GROUP BY sales.productsku,s.city,
+	   	 GROUP BY sales.productsku,s.city,
 				s.country,s.visitid,s.productsku
 
 Alternative way for result use view table :
 
 		CREATE OR REPLACE VIEW avg_total_order AS
 		SELECT DISTINCT s.city,
-		        s.country,
+		       		s.country,
 				s.productsku,
                  AVG (total_ordered) :: NUMERIC(10,2) AS Avg_Total_order
-        FROM sales_by_sku AS sales
+        	FROM sales_by_sku AS sales
 		INNER JOIN all_sessions AS s
 		ON sales.productsku = s.productsku
 		WHERE city <> 'not available in demo dataset'
-    	 AND country <> 'not available in demo dataset'
+    	 	AND country <> 'not available in demo dataset'
 		AND city <> '(not set)'
 		AND country <> '(not set)'
 		AND total_ordered <> '0'
-	    GROUP BY sales.productsku,s.city,
+	   	 GROUP BY sales.productsku,s.city,
 		s.country,s.visitid,s.productsku
 
 		SELECT * FROM avg_total_order;
@@ -134,14 +134,14 @@ SQL Queries:
 				type,
 				MAX(total_ordered) as highorder
 	FROM all_sessions AS s
-    JOIN sales_report AS r
+    	JOIN sales_report AS r
 	ON s.productsku = r.productsku
 	WHERE city <> 'not available in demo dataset'
-    AND country <> 'not available in demo dataset'
+   	 AND country <> 'not available in demo dataset'
 	AND city <> '(not set)'
 	AND country <> '(not set)'
-    GROUP BY r.name,s.city,s.country,s.type
-    ORDER BY highorder DESC
+   	 GROUP BY r.name,s.city,s.country,s.type
+   	 ORDER BY highorder DESC
 	
 USE CTE :: Improve the readability of complex query 
 	
@@ -183,8 +183,8 @@ SQL Queries:
 		JOIN analytics AS a
 		ON s.fullvisitorid = a.fullvisitorid
 		WHERE country != '(not set)'
-        AND city != '(not set)'
-        AND city !='not available in demo dataset'
+       		 AND city != '(not set)'
+       		 AND city !='not available in demo dataset'
 		AND country !='not available in demo dataset'
 		GROUP BY a.fullvisitorid,s.city,s.country
 		
@@ -192,8 +192,8 @@ USE CTE :: Improve the readability of complex query
 
 	WITH generate_revenue AS (
 	SELECT DISTINCT s.city,
-					s.country,
-					ROUND(SUM(a.revenue),2) AS Total_Revenue
+			s.country,
+			ROUND(SUM(a.revenue),2) AS Total_Revenue
 			FROM all_sessions AS s
 			JOIN analytics AS a
 			ON s.fullvisitorid = a.fullvisitorid
