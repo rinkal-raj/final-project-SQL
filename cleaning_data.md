@@ -1,4 +1,5 @@
 What issues will you address by cleaning the data?
+
     When i deleted duplicate values from tables i lost all data from tables many times.
     It was difficult update NULL values from all cloumns.
     In analytics table, i deleted duplicate value of visitnumber i get only 3 numbers of data and also when i deleted fullvisitorid duplicate data i lost many number of data. i didn't get accurate result.
