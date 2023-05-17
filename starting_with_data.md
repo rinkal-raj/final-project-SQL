@@ -80,7 +80,7 @@ Question 5: compute the percentage of visitors to the site that actually makes a
 
 SQL Queries: 
 
-   SELECT DISTINCT a.visitid,
+    SELECT DISTINCT a.visitid,
     ROUND(COUNT(a.timeonsite) / SUM(COUNT(r.total_ordered)) OVER () * 100,2) AS visitor_percentage
     FROM analytics AS a
     JOIN all_sessions AS s
