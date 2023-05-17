@@ -1,6 +1,6 @@
 Follow the instructions below to complete this project.
 
-## Part 1: Loadingcsv Files into Database
+## Part 1: Loading csv Files into Database
 
 Create a new PostgreSQL database called `ecommerce`. Set up tables for each .csv file by following [these instructions](https://www.postgresqltutorial.com/postgresql-tutorial/import-csv-file-into-posgresql-table/)
 
@@ -12,7 +12,7 @@ Create a new PostgreSQL database called `ecommerce`. Set up tables for each .csv
 
 As always, once you have received any dataset, your first task is to orient yourself to the data contained within. While exploring the data, you should keep an eye out for any of potential data issues that need to be cleaned. 
 
-**Cleaning hint**: The unit cost in the data needs to be divided by 1,000,000. 
+**Cleaning hint**: The unit cost in thedata needs to be divided by 1,000,000. 
 
 Apart from this, did you see any other issue that requires cleaning? Be sure to take the time upfront to address them.
 

@@ -1,5 +1,6 @@
 What are your risk areas? Identify and describe them.
 
+
 Data of ecommerce database has so much messy so it is difficult to understand it.
 In database too many columns has null values and duplicate values thus,it is hard to understand how to manage this.
 when i remov null values i lost all data from tables many times.
